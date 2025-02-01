@@ -1,27 +1,27 @@
-// import { Route, Router, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom'
 import './App.css';
 
-// import MainLayout from './components/Layout/MainLayout';
-// import Home from './pages/Home';
-// import NotFound from './pages/NotFound';
-import Footer from './components/Layout/Footer';
-import Header from './components/Layout/Header';
-import Main from './components/Layout/Main';
+import MainLayout from './components/Layout/MainLayout';
+import Home from './pages/Home';
+import Products from './pages/Products';
+import Sale from './pages/Sale';
+import NotFound from './pages/NotFound';
+import Categories from './pages/Products';
+import Cart from './pages/Cart';
 
 function App() {
   return (
     <div className="App">
-      {/* <Router>
-        <Routes>
-          <Route path="/" element={<MainLayout />}>
-            <Route index element={<Home />} />
-            <Route path='*' element={<NotFound/>}  />
-          </Route>
-        </Routes>
-      </Router> */}
-      <Header/>
-      <Main/>
-      <Footer/>      
+      <Routes>
+        <Route path="/" element={<MainLayout />}>
+          <Route index element={<Home />} />
+          <Route path='/products' element={<Products/>} />
+          <Route path='/sale' element={<Sale/>} />
+          <Route path='*' element={<NotFound/>}  />
+          <Route path='/categories' element={<Categories/>} />
+          <Route path='/cart' element={<Cart/>} />
+        </Route>
+      </Routes>
     </div>
   );
 }
