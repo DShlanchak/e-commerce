@@ -7,7 +7,9 @@ import MainLayout from '../MainLayout'
 export default function Main() {
   return (
     <main>
-      <p>Main</p>
+      <>
+      Main
+      </>
       {/* <Router>
         <Routes>
           <Route path="/" element={<MainLayout/>} >

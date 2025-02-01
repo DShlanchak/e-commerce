@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import {NavLink, Link} from 'react-router-dom';
 import s from './index.module.css';
 import logo from './media/logo.png';
 
@@ -6,6 +7,7 @@ export default function Header() {
   const count = 1;
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const setClass = ({isActive}) => [s.link, isActive? s.active : ''].join(' ');
 
   const handleResize = () => {
     setIsMobile(window.innerWidth <= 768);
@@ -29,13 +31,13 @@ export default function Header() {
     <header> 
       <div className={s.container}>
         <div className={s.header_body}>
-          <a href="home.html">
+          <Link to={'/'}>
             <img src={logo} alt="logo"/>
-          </a>
+          </Link>
           {!isMobile && (
-            <a href="home.html" className={s.catalog_btn}>
+            <Link to={'/categories'} className={s.catalog_btn}>
               Catalog
-            </a> 
+            </Link> 
           )}
         </div>
 
@@ -49,18 +51,18 @@ export default function Header() {
 
         <nav className={s.nav}>
           <ul className={`${s.nav_list} ${isMenuOpen ? s.menu_burger : ""}`}>
-            <li><a href="home.html">Главная</a></li>
-            <li><a href="about.html">О нас</a></li>
-            <li><a href="services.html">Услуги</a></li>
+            <li><NavLink className={setClass} to={'/'}>Home</NavLink></li>
+            <li><NavLink className={setClass} to={'/products'}>Products</NavLink></li>
+            <li><NavLink className={setClass} to={'/sale'}>Sale</NavLink></li>
             {isMobile && isMenuOpen && (
               <li>
-                <a href="home.html" className={s.catalog_btn_bm}>Catalog</a>
+                <Link to={'/categories'} className={s.catalog_btn_bm}>Catalog</Link>
               </li>
             )}
           </ul>
         </nav>
         <div className={s.cart_wrapper}>
-          <a href="cart.html" className={s.cart_icon}>🛒</a>
+          <Link to={'/cart'} className={s.cart_icon}>🛒</Link>
           <span className={s.cart_count}>{count}</span>
         </div>
       </div>
