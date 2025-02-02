@@ -1,14 +1,9 @@
   .container {
-    max-width: 87rem; 
     width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    padding: 0.625rem;
-    margin: 0 auto;
-    background-color: #f8f8f8;
-    border-bottom: 1px solid #ccc;
     height: 80px;
   }
   

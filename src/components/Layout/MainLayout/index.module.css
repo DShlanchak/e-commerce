@@ -1,0 +1,8 @@
+.wrapper {
+    max-width: 87rem;
+    min-height: 100vh;
+    margin: 0 auto;
+    padding: 0px 0.625rem;
+    display: grid;
+    grid-template:  minmax(80px, auto) 1fr minmax(100px, 150px) / 1fr;
+}

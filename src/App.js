@@ -15,11 +15,11 @@ function App() {
       <Routes>
         <Route path="/" element={<MainLayout />}>
           <Route index element={<Home />} />
-          <Route path='/products' element={<Products/>} />
-          <Route path='/sale' element={<Sale/>} />
+          <Route path='products' element={<Products/>} />
+          <Route path='sale' element={<Sale/>} />
+          <Route path='categories' element={<Categories/>} />
+          <Route path='cart' element={<Cart/>} />
           <Route path='*' element={<NotFound/>}  />
-          <Route path='/categories' element={<Categories/>} />
-          <Route path='/cart' element={<Cart/>} />
         </Route>
       </Routes>
     </div>
