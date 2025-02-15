@@ -1,0 +1,66 @@
+.spoiler {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+  }
+  
+  /* Button (hidden by default) */
+  .spoiler_btn {
+    width: 100%;
+    padding: 0.625rem 0;
+    background: none;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: left;
+    position: relative;
+    display: none; /* Hidden by default */
+  }
+  
+  /* arrow */
+  .spoiler_btn::after {
+    content: "";
+    position: absolute;  
+    right: 10px;
+    top: 50%;
+    width: 10px;
+    height: 10px;
+    border-left: 1px solid black;
+    border-bottom: 1px solid black;
+    transform: translateY(-50%) rotate(-45deg);
+    transition: transform 0.3s;
+  }
+  
+  /* Open arrow */
+  .spoiler_btn.open::after {
+    transform: translateY(-50%) rotate(135deg);
+  }
+  
+  /* Content is rendered by default */
+  .spoiler_content {
+    /* display: block; */
+    padding: 0.625rem 0;
+  }
+  
+  /* On small screens, hide the content and show the button */
+  @media (max-width: 768px) {
+    .spoiler_btn {
+      display: block; 
+    }
+  
+    .spoiler_content {
+      max-height: 0;
+      overflow: hidden;
+      padding: 0;
+    }
+  
+    /* When the spoiler's open */
+    .spoiler_content.open {
+      max-height: 62.5rem;
+      padding: 0.625rem 0;
+      border-bottom: 1px solid #ccc;
+    }
+  }
+  

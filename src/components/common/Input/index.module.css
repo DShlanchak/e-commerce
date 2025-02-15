@@ -1,0 +1,33 @@
+.container{
+  display:flex;
+  align-items: center;
+  gap: 0.625rem;
+  font-weight: 600;
+}
+
+.input {
+    padding: 0.3125rem 0.75rem;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: 0.02rem;
+    width: 100%;
+    max-width: fit-content;
+    outline: none;
+    transition: all 0.2s ease-in-out;
+  }
+  
+
+  @media (max-width: 768px) {
+    .input {
+      font-size: 0.9rem;
+      padding: 0.1875rem 0.5rem;
+      border-radius: 10px;
+    }
+  }
+  
+  .input:focus {
+    box-shadow: 0 0 5px rgba(11, 15, 19, 0.3);
+  }
+  

@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {NavLink, Link} from 'react-router-dom';
 import s from './index.module.css';
-import logo from './media/logo.png';
+import logo from '../../assets/logo.png';
 
 export default function Header() {
   const count = 1;
@@ -25,6 +25,12 @@ export default function Header() {
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+
+  const closeMenu = () => {
+    if (isMobile) {
+      setIsMenuOpen(false);
+    }
   };
 
   return (
@@ -51,12 +57,12 @@ export default function Header() {
 
         <nav className={s.nav}>
           <ul className={`${s.nav_list} ${isMenuOpen ? s.menu_burger : ""}`}>
-            <li><NavLink className={setClass} to={'/'}>Home</NavLink></li>
-            <li><NavLink className={setClass} to={'/products'}>Products</NavLink></li>
-            <li><NavLink className={setClass} to={'/sale'}>Sale</NavLink></li>
+            <li><NavLink className={setClass} to={'/'} onClick={closeMenu}>Home</NavLink></li>
+            <li><NavLink className={setClass} to={'/products'} onClick={closeMenu}>Products</NavLink></li>
+            <li><NavLink className={setClass} to={'/sale'} onClick={closeMenu}>Sale</NavLink></li>
             {isMobile && isMenuOpen && (
               <li>
-                <Link to={'/categories'} className={s.catalog_btn_bm}>Catalog</Link>
+                <Link to={'/categories'} className={s.catalog_btn_bm} onClick={closeMenu}>Catalog</Link>
               </li>
             )}
           </ul>

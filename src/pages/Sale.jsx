@@ -2,6 +2,8 @@ import React from 'react'
 
 export default function Sale() {
   return (
-    <div>Sale</div>
+    <div>
+      <h2>Sale</h2>
+    </div>
   )
 }
