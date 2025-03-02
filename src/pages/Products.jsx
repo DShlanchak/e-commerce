@@ -1,4 +1,5 @@
 import Filters from "../components/product/Filters";
+import ProductList from "../components/product/ProductList";
 
 
 export default function Products() {
@@ -6,6 +7,7 @@ export default function Products() {
     <div>
       <h2>Products</h2>
       <Filters/>
+      <ProductList/>
     </div>
     
   )

@@ -1,7 +1,11 @@
-import React from 'react'
 
-export default function ProductList
-() {
+import { getAllProducts } from '../../../services/getProducts.js';
+
+export default function ProductList() {
+  // useEffect(() => {
+  //   getAllProducts();
+  // }, []);
+
   return (
     <div>ProductList
         
