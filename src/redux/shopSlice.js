@@ -10,8 +10,8 @@ export const fetchCategories = createAsyncThunk(
 );
 
 // fetch products by category
-export const fetchProducts = createAsyncThunk(
-  "shop/fetchProducts", 
+export const fetchProductsByCategory = createAsyncThunk(
+  "shop/fetchProductsByCategory", 
   async (categoryId) => {
     const response = await fetch(`http://localhost:3333/categories/${categoryId}`);
     return { categoryId, products: await response.json() };
@@ -38,7 +38,7 @@ const shopSlice = createSlice({
   name: "shop",
   initialState: {
     categories: { list: [], status: "idle", error: null },
-    products: { items: {}, status: "idle", error: null },
+    productsByCategory: { items: {}, status: "idle", error: null },
     allProducts: { list: [], status: "idle", error: null },
     singleProduct: { details: null, status: "idle", error: null },
   },
@@ -57,17 +57,17 @@ const shopSlice = createSlice({
         state.categories.error = action.error.message;
       })
 
-      .addCase(fetchProducts.pending, (state) => {
-        state.products.status = "loading";
+      .addCase(fetchProductsByCategory.pending, (state) => {
+        state.productsByCategory.status = "loading";
       })
-      .addCase(fetchProducts.fulfilled, (state, action) => {
+      .addCase(fetchProductsByCategory.fulfilled, (state, action) => {
         const { categoryId, products } = action.payload;
-        state.products.items[categoryId] = products;
-        state.products.status = "succeeded";
+        state.productsByCategory.items[categoryId] = products;
+        state.productsByCategory.status = "succeeded";
       })
-      .addCase(fetchProducts.rejected, (state, action) => {
-        state.products.status = "failed";
-        state.products.error = action.error.message;
+      .addCase(fetchProductsByCategory.rejected, (state, action) => {
+        state.productsByCategory.status = "failed";
+        state.productsByCategory.error = action.error.message;
       })
 
       .addCase(fetchAllProducts.pending, (state) => {
