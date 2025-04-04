@@ -1,4 +1,4 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk, createSerializableStateInvariantMiddleware } from "@reduxjs/toolkit";
 
 //fetch categories
 export const fetchCategories = createAsyncThunk(
@@ -97,3 +97,10 @@ const shopSlice = createSlice({
 });
 
 export default shopSlice.reducer;
+
+
+// удалить fetsch
+// дoбавить cart
+// переименовать файл на cartSlice
+// исправить импорты
+// ИЛИ сделать новый файл

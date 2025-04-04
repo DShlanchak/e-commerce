@@ -1,22 +1,13 @@
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchAllProducts } from "../redux/shopSlice";
-import { Link, Outlet } from "react-router-dom";
-
+import { Link} from "react-router-dom";
+import { useAllProducts } from "../api/shopApi"
 import Filters from "../components/product/Filters";
 
 function AllProducts() {
-  const dispatch = useDispatch();
-  const { list, status } = useSelector((state) => state.shop.allProducts);
 
-  useEffect(() => {
-    if (status === "idle") dispatch(fetchAllProducts());
-  }, [dispatch, status]);
+  const { data: list, isLoading, isError } = useAllProducts();
 
-  if (status === "loading") return <p>Loading...</p>;
-  if (status === "failed") return <p>Download error</p>;
-
-  console.log(list)
+  if (isLoading) return <p>Loading...</p>;
+  if (isError) return <p>Download error</p>;
 
   return (
     <div>
@@ -29,7 +20,6 @@ function AllProducts() {
           </li>
         ))}
       </ul>
-      <Outlet />
     </div>
   );
 }

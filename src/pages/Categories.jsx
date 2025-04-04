@@ -1,34 +1,41 @@
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchCategories } from "../redux/shopSlice";
-import { Link, Outlet } from "react-router-dom";
+import { Link} from "react-router-dom";
+import { useCategories } from "../api/shopApi"
+
 
 function Categories() {
-  const dispatch = useDispatch();
-  const { list, status } = useSelector((state) => state.shop.categories);
 
-  useEffect(() => {
-    if (status === "idle") dispatch(fetchCategories());
-  }, [dispatch, status]);
+  const { data: list, isLoading, isError } = useCategories();
 
-  if (status === "loading") return <p>Loading...</p>;
-  if (status === "failed") return <p>Download error</p>;
+  if (isLoading) return <p>Loading...</p>;
+  if (isError) return <p>Download error</p>;
+  // const dispatch = useDispatch();
+  // const { list, status } = useSelector((state) => state.shop.categories);
 
-  console.log(list)
+  // useEffect(() => {
+  //   if (status === "idle") dispatch(fetchCategories());
+  // }, [dispatch, status]);
+
+  // if (status === "loading") return <p>Loading...</p>;
+  // if (status === "failed") return <p>Download error</p>;
 
   return (
     <div>
-      <h2>Категории</h2>
+      <h2>Categories</h2>
       <ul>
         {list.map((category) => (
           <li key={category.id}>
-            <Link to={`/categories/${category.id}`}>{category.title}</Link>
+            <Link to={`/categories/${category.id}`}>
+              <div>
+                <img src={`http://localhost:3333${category.image}`} alt={category.title} />
+                <p>{category.title}</p>
+              </div>                 
+            </Link>
           </li>
         ))}
       </ul>
-      <Outlet />
     </div>
   );
 }
 
 export default Categories;
+
