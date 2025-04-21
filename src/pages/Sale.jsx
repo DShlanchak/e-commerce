@@ -1,5 +1,5 @@
 import React from 'react'
-import Filters from '../components/product/Filters'
+import Filters from "../common/Filters";
 
 export default function Sale() {
   return (

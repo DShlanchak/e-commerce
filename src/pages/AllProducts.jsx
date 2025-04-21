@@ -1,6 +1,6 @@
 import { Link} from "react-router-dom";
 import { useAllProducts } from "../api/shopApi"
-import Filters from "../components/product/Filters";
+import Filters from "../common/Filters";
 
 export default function AllProducts() {
 

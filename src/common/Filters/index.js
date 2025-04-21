@@ -2,7 +2,7 @@ import Input from '../../common/Input';
 import s from './index.module.css';
 import Spoiler from '../../common/Spoiler';
 import { useLocation } from 'react-router-dom';
-import { useFilters } from '../../../hooks/useFilters';
+import { useFilters } from '../../hooks/useFilters';
 
 export default function Filters () {
   const location = useLocation();

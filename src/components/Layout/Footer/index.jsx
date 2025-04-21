@@ -1,6 +1,5 @@
-import React, { useState } from 'react'
 import s from './index.module.css';
-import Spoiler from '../../common/Spoiler';
+import Spoiler from '../../../common/Spoiler';
 
 
 export default function Footer() {

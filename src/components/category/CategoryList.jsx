@@ -1,4 +1,4 @@
-import GridList from '../common/GridList';
+import GridList from '../../common/GridList';
 import CategoryItem from './CategoryItem';
 
 export default function CategoriesList({ data }) {
