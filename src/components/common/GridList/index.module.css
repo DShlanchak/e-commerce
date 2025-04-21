@@ -1,0 +1,8 @@
+  .gridList {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
