@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useCallback} from 'react';
 import {NavLink, Link} from 'react-router-dom';
 import s from './index.module.css';
 import logo from '../../assets/logo.png';
@@ -9,19 +9,21 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const setClass = ({isActive}) => [s.link, isActive? s.active : ''].join(' ');
 
-  const handleResize = () => {
-    setIsMobile(window.innerWidth <= 768);
-    if (window.innerWidth > 768 && isMenuOpen) {
-      setIsMenuOpen(false);
-    }
-  };
 
-  useEffect(() => {
-    window.addEventListener('resize', handleResize);
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, [isMenuOpen]);
+
+const handleResize = useCallback(() => {
+  setIsMobile(window.innerWidth <= 768);
+  if (window.innerWidth > 768 && isMenuOpen) {
+    setIsMenuOpen(false);
+  }
+}, [isMenuOpen]); 
+
+useEffect(() => {
+  window.addEventListener('resize', handleResize);
+  return () => {
+    window.removeEventListener('resize', handleResize);
+  };
+}, [handleResize])
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -75,3 +77,4 @@ export default function Header() {
     </header>
   )
 }
+

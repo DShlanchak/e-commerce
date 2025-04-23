@@ -1,7 +1,7 @@
 import GridList from '../../common/GridList';
 import CategoryItem from './CategoryItem';
 
-export default function CategoriesList({ data }) {
+export default function CategoryList({ data }) {
   return (
     <GridList>
       {data.map((category) => (

@@ -1,4 +1,4 @@
-import { createSlice, createAsyncThunk, createSerializableStateInvariantMiddleware } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 //fetch categories
 export const fetchCategories = createAsyncThunk(

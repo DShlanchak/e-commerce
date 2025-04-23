@@ -1,0 +1,112 @@
+  .card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    padding: 16px;
+    background-color: #fff;
+    transition: transform 0.2s, box-shadow 0.2s;
+    text-align: center;
+    height: 100%;
+    gap: 12px;
+  }
+  
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  }
+  
+  .link {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .imageWrapper {
+    width: 100%;
+    max-width: 200px;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    position: relative;
+    border-radius: 8px;
+  }
+
+  .image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .priceBlock {
+    margin: 8px 0;
+  }
+  
+  .currentPrice {
+    font-weight: bold;
+    color: #222;
+  }
+  
+  .oldPrice {
+    text-decoration: line-through;
+    color: #888;
+    margin-left: 8px;
+  }
+  
+  .discount {
+    color: #d32f2f;
+    font-weight: bold;
+    margin-left: 8px;
+  }
+  
+  .title {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #333;
+  }
+  
+  .buttonWrapper {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    pointer-events: none; 
+  }
+  
+  .buttonWrapper > * {
+    animation: fadeIn 0.3s ease-out;
+    pointer-events: auto;
+  }
+  
+  .button {
+    background-color: #4caf50;
+    color: white;
+    font-size: 14px;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .button:hover {
+    background-color: #43a047;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
