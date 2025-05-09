@@ -13,9 +13,23 @@ export default function Filters() {
     <Spoiler title="Filter">
       <div className={s.container}>
         <div className={s.row}>
+          <div className={s.price}>
+            <Input
+              {...filterConfig.find(f => f.name === 'from')}
+              value={values.from ?? ''}
+              onChange={handleChange}
+            />
+            <Input
+              {...filterConfig.find(f => f.name === 'to')}
+              value={values.to ?? ''}
+              onChange={handleChange}
+            />
+          </div>
+
           {filterConfig.map((config) => {
             const { name, type, hiddenOnSalePage } = config;
 
+            if (name === 'from' || name === 'to') return null;
             if (hiddenOnSalePage && location.pathname === '/sale') return null;
 
             return (
