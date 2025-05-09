@@ -64,7 +64,7 @@
   }
   
   .title {
-    font-size: 0.9rem;
+    /* font-size: 0.9rem; */
     font-weight: 500;
     color: #333;
   }
@@ -85,9 +85,9 @@
   }
   
   .button {
-    background-color: #4caf50;
+    background-color: #339933;
     color: white;
-    font-size: 14px;
+    /* font-size: 14px; */
     padding: 10px 16px;
     border: none;
     border-radius: 6px;

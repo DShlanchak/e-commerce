@@ -1,22 +1,31 @@
-import { useState } from "react";
 import s from './index.module.css';
 
-const Input = ({ label, borderColor = "#ccc", ...props }) => {
-  const [value, setValue] = useState("");
+const Input = ({ label, type = 'text', options, ...props }) => {
+  const isCheckbox = type === 'checkbox';
+  const isSelect = type === 'select';
 
   return (
     <div className={s.container}>
-      <label>{label}</label>
-      <input
-        className={s.input}
-        style={{ border: `1px solid ${borderColor}` }}
-        value={value}
-        onChange={(e) => setValue(e.target.value)}
-        {...props}
-      />
+      {label && <span>{label}</span>}
+      {isSelect ? (
+        <select className={s.input} {...props}>
+          {options.map(opt => (
+            <option key={opt.value} value={opt.value}>
+              {opt.label}
+            </option>
+          ))}
+        </select>
+      ) : (
+        <input
+          type={type}
+          className={s.input}
+          style={{
+            border: isCheckbox ? 'none' : `1px solid #ccc`,
+          }}
+          {...props}
+        />
+      )}
     </div>
-    
-    
   );
 };
 

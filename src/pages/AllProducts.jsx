@@ -1,12 +1,10 @@
-// import { Link} from "react-router-dom";
-import { useAllProducts } from "../api/shopApi"
-import Filters from "../common/Filters";
+import Filters from "../components/product/Filters";
 import ProductList from "../components/product/ProductList";
-
+import { useFilteredProducts } from "../hooks/useFilteredProducts";
 
 export default function AllProducts() {
+  const { filteredProducts, isLoading, isError } = useFilteredProducts();
 
-  const { data, isLoading, isError } = useAllProducts();
 
   if (isLoading) return <p>Loading...</p>;
   if (isError) return <p>Download error</p>;
@@ -14,8 +12,10 @@ export default function AllProducts() {
   return (
     <div>
       <h2>All Products</h2>
-      <Filters/>
-      <ProductList data={data}/>
+      <Filters/> 
+      <ProductList data={filteredProducts} />
     </div>
   );
 }
+
+

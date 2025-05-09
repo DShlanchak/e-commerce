@@ -2,7 +2,7 @@
     max-width: 87rem;
     min-height: 100vh;
     margin: 0 auto;
-    padding: 0 0.625rem;
+    padding: 0 1rem;
     display: grid;
     grid-template:  minmax(80px, auto) 1fr minmax(100px, 8.43rem) / 1fr;
 }
