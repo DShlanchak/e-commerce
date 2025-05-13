@@ -16,11 +16,16 @@ export const useProductsByCategory = (categoryId) => {
     queryKey: ["productsByCategory", categoryId],
     queryFn: async () => {
       const response = await fetch(`${baseURL}/categories/${categoryId}`);
-      return response.json();
+      const raw = await response.json();
+      return {
+        category: raw.category,
+        products: raw.data, 
+      };
     },
     enabled: !!categoryId,
   });
 };
+
 
 export const useAllProducts = () => {
   return useQuery({
