@@ -58,3 +58,10 @@ export default function ProductItem({ product, addToCart }) {
   );
 }
 
+//сделать функцию addToCard: как получить ее из слайса?
+// в слайсе она принимает product?
+// вынести в отдельный переиспользуемый модуль priceBlock, 
+// добавить возможность настройки в зависимости от страницы или элемента, где он используется (как с отображением в фильтрах discounted items): 
+// <Route path='products' element={<AllProducts/>} /> // ProductItem
+// <Route path='products/:id' element={<SilgleProduct/>} /> // ProductDetails
+//  <Route path='cart' element={<Cart/>} /> / CarttItem
