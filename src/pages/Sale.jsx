@@ -3,7 +3,7 @@ import ProductList from '../components/product/ProductList';
 import { useFilteredProducts } from '../hooks/useFilteredProducts';
 
 export default function AllProducts() {
-  const { filteredProducts, isLoading, isError } = useFilteredProducts({ discounted: true});
+  const { filteredProducts, isLoading, isError } = useFilteredProducts({ discounted: true , from:'', to:''});
 
 
   if (isLoading) return <p>Loading...</p>;
