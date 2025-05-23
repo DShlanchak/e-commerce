@@ -42,27 +42,6 @@
     object-fit: cover;
   }
   
-  .priceBlock {
-    margin: 8px 0;
-  }
-  
-  .currentPrice {
-    font-weight: bold;
-    color: #222;
-  }
-  
-  .oldPrice {
-    text-decoration: line-through;
-    color: #888;
-    margin-left: 8px;
-  }
-  
-  .discount {
-    color: #d32f2f;
-    font-weight: bold;
-    margin-left: 8px;
-  }
-  
   .title {
     /* font-size: 0.9rem; */
     font-weight: 500;

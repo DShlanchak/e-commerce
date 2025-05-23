@@ -16,9 +16,7 @@ export default function ProductDetails() {
     if (isError) return <p>Error loading product</p>;
     if (!data?.length) return <p>No product details.</p>;
 
-    const product = data[0]
-
-
+    const product = data[0];
 
     return (
         <div>
